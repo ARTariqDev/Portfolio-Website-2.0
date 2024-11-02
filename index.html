@@ -3,16 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="main.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="main.css"/>
     <title>Personal Website</title>
 </head>
 <body>
     <header>
         <a href="https://github.com/ARTariqDev" target="_blank"><i class="fab fa-github" style="font-size: 1.75em; margin-top: auto; margin-bottom: auto;"></i></a>
         <a href="https://linkedin.com/in/abdur-rehman-tariq-302b1b241" target="_blank"><i class="fab fa-linkedin" style="font-size: 1.75em; margin-top: auto;" ></i></a>
+        <a href="https://www.linkedin.com/in/abdur-rehman-tariq-302b1b241/details/certifications/" target="_blank" >Certifications</a>
+        <a href="#AboutMe" class="scroll-link">About</a>
         <a href="#projects" class="scroll-link">Projects</a>
-        <a href="#contact" class="scroll-link">Contact Me</a>
+        <a href="#contact" class="scroll-link">Contact</a>
     </header>
 
     <div class="video-bg">
@@ -21,52 +23,99 @@
             Your browser does not support the video tag.
         </video>
     </div>
+
     <div class="content">
-        <h1>
-            <span class="hover-effect">Hi! I'm Abdur Rehman Tariq</span>
-        </h1>
-        <h4>
-            <span class="hover-effect">A high schooler and amateur programmer, currently working with the MERN stack</span>
-        </h4>
+        <h1><span class="hover-effect">Hi! I'm Abdur Rehman Tariq</span></h1>
+        <h4><span class="hover-effect">A high schooler and amateur programmer, currently working with the MERN stack</span></h4>
     </div>
+
+    <div class="AboutMe" style="background-color: black;" id="AboutMe">
+        <div class="AboutMeContent">
+            <h2 class="fadeInText" style="color: #ffcc00; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 3em; margin-top: 1em;">About Me</h2>
+            <p class="fadeInText">Hi, I'm Abdur Rehman Tariq, an A-Level student at LGS Johar Town. I am a uniquely creative individual with exceptional problem-solving skills. My proficiency in working with various libraries and frameworks and my early mastery of computer science demonstrate my capabilities. Additionally, I possess a strong grasp of basic SEO concepts, UI/UX design principles and am tech-savvy.</p>
+
+            <h3 class="fadeInText">Proficiency in Coding</h3>
+            <p class="fadeInText">My proficiency in coding includes the following languages:</p>
+            <ul class="fadeInText">
+                <li>C</li>
+                <li>C++</li>
+                <li>C#</li>
+                <li>Python (Numpy, Matplotlib, Pandas, Scipy, Scikit-Learn, Keras, OpenCV)</li>
+                <li>HTML</li>
+                <li>CSS/SASS</li>
+                <li>JavaScript (Node.js, React.js, React Native)</li>
+                <li>Dart</li>
+                <li>R</li>
+            </ul>
+
+            <h3 class="fadeInText">Key Achievements, Skills and Certifications</h3>
+            <p class="fadeInText">I am accustomed to excelling under tight deadlines, consistently delivering high-quality work with efficiency. At the age of 15, I obtained a Data Science and Machine Learning certification from LUMS (Lahore University of Management Sciences) and developed an original nCr (combinatorics) based feature selection algorithm while leading a team of 8. I handled the logic and code myself.</p>
+
+            <p class="fadeInText">Moreover, I have completed an internship as a Shopify web developer at BTW, demonstrating my ability to create visually appealing websites while meeting client demands.</p>
+
+            <p class="fadeInText">I have earned certifications from Meta for completing specializations in Frontend Web Development using React.js, HTML, CSS, JavaScript, and Figma, as well as in Cross Platform Development using React Native.</p>
+        </div>
+    </div>
+
     <div class="section2" id="projects">
-        <h2>Recent Projects</h2>
+        <h2 style="color: #ffcc00;">Recent Projects</h2>
         <div class="grid-container">
-            <div class="card">
+            <div class="card hidden">
                 <h3>Flow</h3>
                 <p>An all-in-one planner app (made in React.js) allowing you to set timers, events, alarms, or make a to-do list to manage your day-to-day "Flow".</p>
             </div>
-            <div class="card">
+            <div class="card hidden">
                 <h3>Nexus Learn</h3>
                 <p>An app I made (in React.js) that compiles various resources together for A-level subjects including (but not limited to): Books, Topical Questions, and Notes.</p>
             </div>
-            <div class="card">
+            <div class="card hidden">
                 <h3>Feature Optimization with Combinatorics</h3>
                 <p>A group project I spearheaded as the team lead, where I designed an algorithm using combinatorics to optimally select features (variables) for machine learning.</p>
             </div>
-            <div class="card">
+            <div class="card hidden">
                 <h3>Plinko</h3>
                 <p>A small game I made with three.js that simulates a Plinko machine, including a separate numerical simulation using the binomial distribution.</p>
             </div>
         </div>
     </div>
-    <<div class="form" id="contact">
+
+    <div class="form" id="contact">
         <h2>Contact Me</h2>
         <form action="mailto:ddrd7718@gmail.com?subject=Query" method="GET">
             <label for="fname">First Name</label>
             <input type="text" id="fname" name="firstname" placeholder="Your name.." required>
-
             <label for="lname">Last Name</label>
             <input type="text" id="lname" name="lastname" placeholder="Your last name.." required>
-
             <label for="subject">Subject</label>
             <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px" required></textarea>
             <input type="submit" value="Submit">
         </form>
     </div>
+
     <footer>
         <p>© 2024 Abdur Rehman Tariq. All rights reserved.</p>
     </footer>
-    
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Fade-in for cards in the Projects section
+            const cards = document.querySelectorAll(".card");
+            const aboutMeTexts = document.querySelectorAll(".fadeInText");
+
+            const observerOptions = { threshold: 0.2 };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("fadeInUp");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            cards.forEach(card => observer.observe(card));
+            aboutMeTexts.forEach(text => observer.observe(text));
+        });
+    </script>
 </body>
 </html>
