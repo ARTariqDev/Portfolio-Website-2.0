@@ -22,7 +22,7 @@ header {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
-header a {
+ a {
     margin: 0 15px;
     margin-top: 1em;
     margin-right: 2em;
@@ -31,9 +31,10 @@ header a {
     text-decoration: none;
     font-weight: bolder;
     transition: color 0.3s;
+    margin-left: 0em;
 }
 
-header a:hover {
+a:hover {
     color: #ffcc00;
 }
 
