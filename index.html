@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="main.css"/>
     <title>Personal Website</title>
 </head>
-<body class="wrapper">
+<body>
     <header>
         <a href="https://github.com/ARTariqDev" target="_blank"><i class="fab fa-github" style="font-size: 1.75em; margin-top: auto; margin-bottom: auto;"></i></a>
         <a href="https://linkedin.com/in/abdur-rehman-tariq-302b1b241" target="_blank"><i class="fab fa-linkedin" style="font-size: 1.75em; margin-top: auto;" ></i></a>
@@ -60,22 +60,22 @@
     <div class="section2" id="projects">
         <h2 style="color: #ffcc00;" class="scroll-link">Recent Projects</h2>
         <div class="grid-container">
-            <div>
+            <div class="card hidden">
                 <h5 class="projectTitle">Flow</h5>
                 <p>An all-in-one planner app (made in React.js) allowing you to set timers, events, alarms, or make a to-do list to manage your day-to-day "Flow".</p>
                 <button class="gitlink"><a href="https://github.com/ARTariqDev/Flow">view on github</a></button>
             </div>
-            <div>
+            <div class="card hidden">
                 <h5 class="projectTitle">Nexus Learn</h5>
                 <p>An app I made (in React.js) that compiles various resources together for A-level subjects including (but not limited to): Books, Topical Questions, and Notes.</p>
                 <button class="gitlink"><a href="https://github.com/ARTariqDev/Nexus">view on github</a></button>
             </div>
-            <div>
+            <div class="card hidden">
                 <h5 class="projectTitle">Feature Optimization with Combinatorics</h5>
                 <p>A group project I spearheaded as the team lead, where I designed an algorithm using combinatorics to optimally select features (variables) for machine learning.</p>
                 <button class="gitlink"><a href="https://github.com/ARTariqDev/Feature-Optimisation-with-combinatrics">view on github</a></button>
             </div>
-            <div>
+            <div class="card hidden">
                 <h5 class="projectTitle">Plinko</h5>
                 <p>A small game I made with three.js that simulates a Plinko machine, including a separate numerical simulation using the binomial distribution.</p>
                 <button class="gitlink"><a href="https://github.com/ARTariqDev/Plinko-Game">view on github</a></button>
@@ -100,5 +100,27 @@
         <p>© 2024 Abdur Rehman Tariq. All rights reserved.</p>
     </footer>
 
+    <!--This is just some frontend js to time an animation-->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Fade-in for cards in the Projects section
+            const cards = document.querySelectorAll(".card");
+            const aboutMeTexts = document.querySelectorAll(".fadeInText");
+
+            const observerOptions = { threshold: 0.2 };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("fadeInUp");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            cards.forEach(card => observer.observe(card));
+            aboutMeTexts.forEach(text => observer.observe(text));
+        });
+    </script>
 </body>
 </html>
