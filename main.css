@@ -44,6 +44,7 @@ header i {
 
 /* Video background styling */
 .video-bg {
+    opacity: 97.5%;
     position: fixed;
     top: 0;
     left: 0;
@@ -121,7 +122,7 @@ h4 {
 
 @keyframes typewriter {
     from { width: 0; }
-    to { width: 100%; }
+    to { width: 100%; color: #ffaa00;}
 }
 
 @keyframes blink {
@@ -325,4 +326,40 @@ footer {
     .card2 {
         font-size: 0.8rem;
     }
+}
+
+body {
+    cursor: none;
+}
+
+/* Custom cursor style */
+.custom-cursor {
+    position: fixed;
+    width: 24px;
+    height: 24px;
+    border: 2px solid white; /* White outline */
+    border-radius: 50%; /* Circular shape */
+    pointer-events: none; /* Prevent cursor from interfering with events */
+    z-index: 9999; /* Ensure it stays on top */
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+/* Inner hollow black circle */
+.custom-cursor::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 18px;
+    height: 18px;
+    border: 2px solid black; /* Inner black hollow circle */
+    border-radius: 50%;
+}
+
+/* Hover effect for links and buttons */
+a:hover ~ .custom-cursor,
+button:hover ~ .custom-cursor {
+    background-color: #ffaa00; /* Change cursor color */
+    transform: scale(1.2); /* Slightly enlarge the cursor */
 }

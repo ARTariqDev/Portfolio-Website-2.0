@@ -15,6 +15,7 @@
         <a href="#projects" class="scroll-link">Projects</a>
         <a href="#contact" class="scroll-link">Contact</a>
     </header>
+    <div class="custom-cursor"></div>
 
     <div class="video-bg">
         <video autoplay muted loop id="bg-video" preload="auto" poster="assets/poster.png">
@@ -187,6 +188,13 @@
             cards.forEach(card => observer.observe(card));
             aboutMeTexts.forEach(text => observer.observe(text));
         });
+
+    document.addEventListener("mousemove", (e) => {
+        const cursor = document.querySelector(".custom-cursor");
+        cursor.style.left = `${e.pageX}px`;
+        cursor.style.top = `${e.pageY}px`;
+    });
+
     </script>
 </body>
 </html>
