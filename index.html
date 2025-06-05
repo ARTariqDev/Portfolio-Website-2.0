@@ -170,7 +170,7 @@
     <!--This is just some frontend js to time an animation-->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            // Fade-in for cards in the Projects section
+            // A small Fade-in for cards in the Projects section
             const cards = document.querySelectorAll(".card");
             const aboutMeTexts = document.querySelectorAll(".fadeInText");
 
@@ -189,6 +189,7 @@
             aboutMeTexts.forEach(text => observer.observe(text));
         });
 
+      //Some code for a custom cursor
     document.addEventListener("mousemove", (e) => {
         const cursor = document.querySelector(".custom-cursor");
         cursor.style.left = `${e.pageX}px`;
