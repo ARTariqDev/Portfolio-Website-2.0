@@ -5,17 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="main.css"/>
-    <title>Personal Website</title>
+    <title>Projects</title>
 </head>
 <body>
     <header>
         <a href="https://github.com/ARTariqDev" target="_blank"><i class="fab fa-github" style="font-size: 3.2vh; margin-top: auto; margin-bottom: auto;"></i></a>
         <a href="https://linkedin.com/in/abdur-rehman-tariq-302b1b241" target="_blank"><i class="fab fa-linkedin" style="font-size: 3.2vh; margin-top: auto;" ></i></a>
-        <a href="#content">Home</a>
+        <a href="index.html">Home</a>
         <a href="about.html" class="scroll-link">About</a>
         <a href="projects.html" class="scroll-link">Projects</a>
-        <a href="contact.html" class="scroll-link">Contact</a>
+        <a href="#contact" class="scroll-link">Contact</a>
     </header>
+
     <div class="custom-cursor"></div>
 
     <div class="video-bg">
@@ -25,16 +26,23 @@
         </video>
     </div>
 
-    <div class="content">
-        <h1><span class="hover-effect">Hi! I'm Abdur Rehman Tariq</span></h1>
-        <h4><span class="hover-effect">A META Certified Frontend Developer specializing in React.js,<br> currently building MERN apps</span></h4>
+    <div class="form" id="contact">
+        <h2 style="color: #ffcc00; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 3em; margin-top: 1em;">Contact Me</h2>
+        <form action="mailto:ddrd7718@gmail.com?subject=Query" method="GET">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="firstname" placeholder="Your name.." style="width:92em" required>
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="lastname" placeholder="Your last name.." style="width:92em" required>
+            <label for="subject">Subject</label>
+            <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px; width:92em" required></textarea>
+            <input type="submit" value="Submit" style="width: 94em;">
+        </form>
     </div>
 
     <footer>
         <p>© 2025 Abdur Rehman Tariq. All rights reserved.</p>
     </footer>
-
-    <!--This is just some frontend js to time an animation-->
+    <!--This is just some frontend js to time an animation and for the cursor, will be adding this to every page-->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             // A small Fade-in for cards in the Projects section

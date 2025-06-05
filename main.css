@@ -1,4 +1,3 @@
-/* General reset */
 body, html {
     margin: 0;
     padding: 0;
@@ -42,7 +41,7 @@ header i {
     margin-top: 0.3em;
 }
 
-/* Video background styling */
+/* CSS for the Video background */
 .video-bg {
     opacity: 97.5%;
     position: fixed;
@@ -60,7 +59,6 @@ header i {
     object-fit: cover;
 }
 
-/* Fullscreen content styling */
 .content {
     position: relative;
     z-index: 1;
@@ -75,7 +73,7 @@ header i {
     padding: 0 3em;
 }
 
-/* h1 Styling */
+
 h1 {
     word-spacing: break-word;
     display: flex;
@@ -89,7 +87,7 @@ h1 {
     display: block;
 }
 
-/* h4 Styling */
+
 h4 {
     text-align: center;
     font-size: 2vw; /* Smaller size for h4 */
@@ -251,9 +249,9 @@ h4 {
     margin-bottom: 0;
 }
  
-/* Contact Form Styling */
+/* Contact Form */
 .form {
-    background-color: rgba(0, 0, 0, 0.7); /* Translucent black background */
+    background-color: rgba(0, 0, 0, 0.7); /* Translucent black background to make the video still visible*/
     padding: 2em;
     max-width: 80%;
     margin: 2em auto;
@@ -340,11 +338,10 @@ body {
     border: 2px solid white; /* White outline */
     border-radius: 50%; /* Circular shape */
     pointer-events: none; /* Prevent cursor from interfering with events */
-    z-index: 9999; /* Ensure it stays on top */
+    z-index: 9999; /* Ensure it stays on top  (by setting a very high z index)*/
     transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-/* Inner hollow black circle */
 .custom-cursor::after {
     content: '';
     position: absolute;
@@ -353,7 +350,7 @@ body {
     transform: translate(-50%, -50%);
     width: 18px;
     height: 18px;
-    border: 2px solid black; /* Inner black hollow circle */
+    border: 2px solid black;
     border-radius: 50%;
 }
 

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="main.css"/>
+    <title>Projects</title>
+</head>
+<body>
+    <header>
+        <a href="https://github.com/ARTariqDev" target="_blank"><i class="fab fa-github" style="font-size: 3.2vh; margin-top: auto; margin-bottom: auto;"></i></a>
+        <a href="https://linkedin.com/in/abdur-rehman-tariq-302b1b241" target="_blank"><i class="fab fa-linkedin" style="font-size: 3.2vh; margin-top: auto;" ></i></a>
+        <a href="index.html">Home</a>
+        <a href="about.html" class="scroll-link">About</a>
+        <a href="#projects" class="scroll-link">Projects</a>
+        <a href="contact.html" class="scroll-link">Contact</a>
+    </header>
+
+    <div class="custom-cursor"></div>
+
+    <div class="video-bg">
+        <video autoplay muted loop id="bg-video" preload="auto" poster="assets/poster.png">
+            <source src="assets/bg.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <div class="section2" id="projects">
+        <h2 style="color: #ffcc00;" class="scroll-link">Recent Projects</h2>
+        <div class="grid-container">
+            <div class="card hidden">
+                <h5 class="projectTitle">Node Visualizer</h5>
+                <p>A GUI based toolkit for creating and viewing Node.js projects</p>
+                <button class="gitlink"><a href="https://github.com/ARTariqDev/NodeGUI" target="_blank">view on github</a></button>
+                <button class="gitlink"><a href="https://www.youtube.com/watch?v=TSuiZMoJNDM" target="_blank">Demo</a></button>
+            </div>
+            <div class="card hidden">
+                <h5 class="projectTitle">Messenger Suggestions Bot</h5>
+                <p>A browser extension i made that reads screen updates in messages sent on facebook messenger and provides  response suggestions</p>
+                <button class="gitlink"><a href="https://github.com/ARTariqDev/messenger-suggestions-bot" target="_blank">view on github</a></button>
+            </div>
+            <div class="card hidden">
+                <h5 class="projectTitle">Maze Runner</h5>
+                <p>A simple maze game I made utilizing wilson's maze generation algorithm with background music and a levels and points system</p>
+                <button class="gitlink"><a href="https://github.com/ARTariqDev/Maze" target="_blank">view on github</a></button>
+                <button class="gitlink"><a href="https://maze-eight-hazel.vercel.app/" target="_blank">Demo</a></button>
+            </div>
+            <div class="card hidden">
+                <h5 class="projectTitle">SuperTicTacToe</h5>
+                <p>A more complex version of tictactoe I made inspired by that one V sauce short</p>
+                <button class="gitlink"><a href="https://github.com/ARTariqDev/SuperTicTacToe" target="_blank">view on github</a></button>
+                <button class="gitlink"><a href="https://super-tic-tac-toe-olive.vercel.app/" target="_blank">Demo</a></button>
+            </div>
+            <div class="card hidden">
+                <h5 class="projectTitle">Flow</h5>
+                <p>An all-in-one planner app (made in React.js) allowing you to set timers, events, alarms, or make a to-do list to manage your day-to-day "Flow".</p>
+                <button class="gitlink"><a href="https://github.com/ARTariqDev/Flow" target="_blank">view on github</a></button>
+            </div>
+            <div class="card hidden">
+                <h5 class="projectTitle">Nexus Learn</h5>
+                <p>An app I made (in React.js) that compiles various resources together for O/A-level subjects including (but not limited to): Books, Topical Questions, and Notes.</p>
+                <button class="gitlink"><a href="https://github.com/ARTariqDev/Nexus" target="_blank">view on github</a></button>
+                <button class="gitlink"><a href="https://nexus-learn.vercel.app" target="_blank">Demo</a></button>
+            </div>
+            <div class="card hidden">
+                <h5 class="projectTitle">Feature Optimization with Combinatorics</h5>
+                <p>A group project I spearheaded as the team lead, where I designed an algorithm using combinatorics to optimally select features (variables) for machine learning.</p>
+                <button class="gitlink"><a href="https://github.com/ARTariqDev/Feature-Optimisation-with-combinatrics" target="_blank">view on github</a></button>
+            </div>
+            <div class="card hidden">
+                <h5 class="projectTitle">Plinko</h5>
+                <p>A small game I made with matter.js that simulates a Plinko machine, including a separate numerical simulation using the binomial distribution.</p>
+                <button class="gitlink"><a href="https://github.com/ARTariqDev/Plinko-Game" target="_blank">view on github</a></button>
+                <button class="gitlink"><a href="https://plinko-game-lac.vercel.app/" target="_blank">Demo</a></button>
+            </div>
+            <div class="card hidden">
+                <h5 class="projectTitle">Grid Search</h5>
+                <p>Another Game I made using React.js , Typescript and Tailwind</p>
+                <button class="gitlink"><a href="https://github.com/ARTariqDev/Grid-Search" target="_blank">view on github</a></button>
+                <button class="gitlink"><a href="https://grid-search.vercel.app/" target="_blank">Demo</a></button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Abdur Rehman Tariq. All rights reserved.</p>
+    </footer>
+    <!--This is just some frontend js to time an animation and for the cursor, will be adding this to every page-->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // A small Fade-in for cards in the Projects section
+            const cards = document.querySelectorAll(".card");
+            const aboutMeTexts = document.querySelectorAll(".fadeInText");
+
+            const observerOptions = { threshold: 0.2 };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("fadeInUp");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            cards.forEach(card => observer.observe(card));
+            aboutMeTexts.forEach(text => observer.observe(text));
+        });
+
+      //Some code for a custom cursor
+    document.addEventListener("mousemove", (e) => {
+        const cursor = document.querySelector(".custom-cursor");
+        cursor.style.left = `${e.pageX}px`;
+        cursor.style.top = `${e.pageY}px`;
+    });
+
+    </script>
+</body>
+</html>
