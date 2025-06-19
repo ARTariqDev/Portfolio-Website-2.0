@@ -88,35 +88,40 @@
     <footer>
         <p>© 2025 Abdur Rehman Tariq. All rights reserved.</p>
     </footer>
-    <!--This is just some frontend js to time an animation and for the cursor, will be adding this to every page-->
+    <!--frontend js to time fadeIn animations and for the cursor, will be adding this to every page-->
+
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            // A small Fade-in for cards in the Projects section
-            const cards = document.querySelectorAll(".card");
-            const aboutMeTexts = document.querySelectorAll(".fadeInText");
+    function initPageInteractions() {
+        const cards = document.querySelectorAll(".card");
+        const aboutMeTexts = document.querySelectorAll(".fadeInText");
 
-            const observerOptions = { threshold: 0.2 };
+        const observerOptions = { threshold: 0.2 };
 
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("fadeInUp");
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
-
-            cards.forEach(card => observer.observe(card));
-            aboutMeTexts.forEach(text => observer.observe(text));
+        const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+            entry.target.classList.add("fadeInUp");
+            observer.unobserve(entry.target);
+            }
         });
+        }, observerOptions);
 
-      //Some code for a custom cursor
-    document.addEventListener("mousemove", (e) => {
+        cards.forEach(card => observer.observe(card));
+        aboutMeTexts.forEach(text => observer.observe(text));
+
+        document.addEventListener("mousemove", (e) => {
         const cursor = document.querySelector(".custom-cursor");
-        cursor.style.left = `${e.pageX}px`;
-        cursor.style.top = `${e.pageY}px`;
-    });
+        if (cursor) {
+            cursor.style.left = `${e.pageX}px`;
+            cursor.style.top = `${e.pageY}px`;
+        }
+        });
+    }
 
+    document.addEventListener("DOMContentLoaded", initPageInteractions);
     </script>
+
+
+
 </body>
 </html>
