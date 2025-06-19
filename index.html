@@ -39,34 +39,44 @@
     <!--frontend js to time fadeIn animations and for the cursor, will be adding this to every page-->
 
     <script>
-    function initPageInteractions() {
-        const cards = document.querySelectorAll(".card");
-        const aboutMeTexts = document.querySelectorAll(".fadeInText");
 
-        const observerOptions = { threshold: 0.2 };
+  function initFadeInAnimations() {
+    const cards = document.querySelectorAll(".card");
+    const aboutMeTexts = document.querySelectorAll(".fadeInText");
+    const observerOptions = { threshold: 0.2 };
 
-        const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-            entry.target.classList.add("fadeInUp");
-            observer.unobserve(entry.target);
-            }
-        });
-        }, observerOptions);
-
-        cards.forEach(card => observer.observe(card));
-        aboutMeTexts.forEach(text => observer.observe(text));
-
-        document.addEventListener("mousemove", (e) => {
-        const cursor = document.querySelector(".custom-cursor");
-        if (cursor) {
-            cursor.style.left = `${e.pageX}px`;
-            cursor.style.top = `${e.pageY}px`;
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("fadeInUp");
+          observer.unobserve(entry.target);
         }
-        });
-    }
+      });
+    }, observerOptions);
 
-    document.addEventListener("DOMContentLoaded", initPageInteractions);
-    </script>
+    cards.forEach(card => observer.observe(card));
+    aboutMeTexts.forEach(text => observer.observe(text));
+  }
+
+
+  function enableCustomCursor() {
+    document.addEventListener("mousemove", (e) => {
+      const cursor = document.querySelector(".custom-cursor");
+      if (cursor) {
+        cursor.style.left = `${e.pageX}px`;
+        cursor.style.top = `${e.pageY}px`;
+      }
+    });
+  }
+
+
+  function initPageInteractions() {
+    initFadeInAnimations();
+    enableCustomCursor();
+  }
+
+  document.addEventListener("DOMContentLoaded", initPageInteractions);
+</script>
+
 </body>
 </html>

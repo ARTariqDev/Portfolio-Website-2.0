@@ -59,7 +59,56 @@
   </footer>
 
   <script>
-    function generateLanguageCard(language, description) {
+
+  function initFadeInAnimations() {
+    const cards = document.querySelectorAll(".card");
+    const fadeInElements = document.querySelectorAll(".fadeInText");
+
+    const observerOptions = { threshold: 0.2 };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("fadeInUp");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    cards.forEach(card => observer.observe(card));
+    fadeInElements.forEach(el => observer.observe(el));
+  }
+
+
+  function enableCustomCursor() {
+    document.addEventListener("mousemove", (e) => {
+      const cursor = document.querySelector(".custom-cursor");
+      if (cursor) {
+        cursor.style.left = `${e.pageX}px`;
+        cursor.style.top = `${e.pageY}px`;
+      }
+    });
+  }
+
+
+  function insertAllLanguageCards() {
+    const container = document.getElementById("language-cards-container");
+    if (!container) return;
+
+    const languages = [
+      { lang: "JavaScript", desc: "Libraries/Frameworks: Node.js, React.js, React Native" },
+      { lang: "Python", desc: "Libraries/Frameworks: Numpy, Matplotlib, Pandas, Scipy, Scikit-Learn, Keras, OpenCV" },
+      { lang: "Dart", desc: "Libraries and Frameworks: Flutter and Firebase" },
+      { lang: "HTML", desc: "Variants: XML, XHTML" },
+      { lang: "CSS", desc: "Variants: SASS, Tailwind" },
+      { lang: "C", desc: "No additional libraries listed" },
+      { lang: "C++", desc: "No additional libraries listed" },
+      { lang: "C#", desc: "No additional libraries listed" },
+      { lang: "Java", desc: "No additional libraries listed" },
+      { lang: "R", desc: "No additional libraries listed" }
+    ];
+
+    languages.forEach(({ lang, desc }) => {
       const card = document.createElement("div");
       card.style.cssText = `
         background-color: rgba(255, 255, 255, 0.1);
@@ -71,7 +120,7 @@
       `;
 
       const title = document.createElement("h3");
-      title.textContent = language;
+      title.textContent = lang;
       title.style.cssText = `
         margin: 0;
         font-size: 1.5em;
@@ -79,71 +128,26 @@
         color: #ffaa00;
       `;
 
-      const desc = document.createElement("p");
-      desc.textContent = description;
-      desc.style.cssText = `
+      const description = document.createElement("p");
+      description.textContent = desc;
+      description.style.cssText = `
         margin-top: 10px;
         font-size: 0.9em;
       `;
 
       card.appendChild(title);
-      card.appendChild(desc);
-
-      return card;
-    }
-
-    function insertAllLanguageCards() {
-      const container = document.getElementById("language-cards-container");
-      const languages = [
-        { lang: "JavaScript", desc: "Libraries/Frameworks: Node.js, React.js, React Native" },
-        { lang: "Python", desc: "Libraries/Frameworks: Numpy, Matplotlib, Pandas, Scipy, Scikit-Learn, Keras, OpenCV" },
-        { lang: "Dart", desc: "Libraries and Frameworks: Flutter and Firebase" },
-        { lang: "HTML", desc: "Variants: XML, XHTML" },
-        { lang: "CSS", desc: "Variants: SASS, Tailwind" },
-        { lang: "C", desc: "No additional libraries listed" },
-        { lang: "C++", desc: "No additional libraries listed" },
-        { lang: "C#", desc: "No additional libraries listed" },
-        { lang: "Java", desc: "No additional libraries listed" },
-        { lang: "R", desc: "No additional libraries listed" }
-      ];
-
-      languages.forEach(({ lang, desc }) => {
-        const card = generateLanguageCard(lang, desc);
-        container.appendChild(card);
-      });
-    }
-
-    function initPageInteractions() {
-      const cards = document.querySelectorAll(".card");
-      const aboutMeTexts = document.querySelectorAll(".fadeInText");
-
-      const observerOptions = { threshold: 0.2 };
-
-      const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("fadeInUp");
-            observer.unobserve(entry.target);
-          }
-        });
-      }, observerOptions);
-
-      cards.forEach(card => observer.observe(card));
-      aboutMeTexts.forEach(text => observer.observe(text));
-
-      document.addEventListener("mousemove", (e) => {
-        const cursor = document.querySelector(".custom-cursor");
-        if (cursor) {
-          cursor.style.left = `${e.pageX}px`;
-          cursor.style.top = `${e.pageY}px`;
-        }
-      });
-    }
-
-    document.addEventListener("DOMContentLoaded", () => {
-      initPageInteractions();
-      insertAllLanguageCards();
+      card.appendChild(description);
+      container.appendChild(card);
     });
-  </script>
+  }
+
+
+  document.addEventListener("DOMContentLoaded", () => {
+    initFadeInAnimations();
+    enableCustomCursor();
+    insertAllLanguageCards();
+  });
+</script>
+
 </body>
 </html>
