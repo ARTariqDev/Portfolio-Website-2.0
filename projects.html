@@ -111,7 +111,7 @@
       }
     ];
 
-    // Function 1: Generate and insert project cards
+
     function generateProjectCards() {
       const container = document.getElementById("projects-grid");
       projects.forEach(project => {
@@ -145,7 +145,7 @@
       });
     }
 
-    // Function 2: Fade-in animations using IntersectionObserver
+
     function initFadeInAnimations() {
       const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
@@ -159,7 +159,7 @@
       document.querySelectorAll(".card, .fadeInText").forEach(el => observer.observe(el));
     }
 
-    // Function 3: Custom cursor
+
     function enableCustomCursor() {
       document.addEventListener("mousemove", (e) => {
         const cursor = document.querySelector(".custom-cursor");
