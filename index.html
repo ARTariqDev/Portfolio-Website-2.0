@@ -1,82 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="main.css"/>
-    <link rel="icon" type="image/x-icon" href="assets/favicon.png">
-    <title>Personal Website</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="main.css"/>
+  <link rel="icon" type="image/x-icon" href="assets/favicon.png">
+  <title>Personal Website</title>
 </head>
 <body>
-    <header>
-        <img src="assets/logo.png"  style="margin-right: 50em; margin-top: 0.5em;"/>
-        <a href="https://github.com/ARTariqDev" target="_blank"><i class="fab fa-github" style="font-size: 3.2vh; margin-top: auto; margin-bottom: auto;"></i></a>
-        <a href="https://linkedin.com/in/abdur-rehman-tariq-302b1b241" target="_blank"><i class="fab fa-linkedin" style="font-size: 3.2vh; margin-top: auto;" ></i></a>
-        <a href="#content">Home</a>
-        <a href="about.html" class="scroll-link">About</a>
-        <a href="projects.html" class="scroll-link">Projects</a>
-        <a href="contact.html" class="scroll-link">Contact</a>
-    </header>
-    <div class="custom-cursor"></div>
+  <header>
+    <img src="assets/logo.png" style="margin-right: 50em; margin-top: 0.5em;" />
+    <a href="https://github.com/ARTariqDev" target="_blank"><i class="fab fa-github" style="font-size: 3.2vh; margin-top: auto; margin-bottom: auto;"></i></a>
+    <a href="https://linkedin.com/in/abdur-rehman-tariq-302b1b241" target="_blank"><i class="fab fa-linkedin" style="font-size: 3.2vh; margin-top: auto;"></i></a>
+    <a href="#content">Home</a>
+    <a href="about.html" class="scroll-link">About</a>
+    <a href="projects.html" class="scroll-link">Projects</a>
+    <a href="contact.html" class="scroll-link">Contact</a>
+  </header>
 
-    <div class="video-bg">
-        <video autoplay muted loop id="bg-video" preload="auto" poster="assets/poster.png">
-            <source src="assets/bg.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </div>
+  <div class="custom-cursor"></div>
 
-    <div class="content">
-        <h1><span class="hover-effect">Hi! I'm Abdur Rehman Tariq</span></h1>
-        <h4><span class="hover-effect">A META Certified Frontend Developer specializing in React.js,<br> currently building MERN apps</span></h4>
-    </div>
+  <div class="video-bg">
+    <video autoplay muted loop id="bg-video" preload="auto" poster="assets/poster.png">
+      <source src="assets/bg.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
 
-    <footer>
-        <p>© 2025 Abdur Rehman Tariq. All rights reserved.</p>
-    </footer>
+  <div class="content">
+    <h1><span class="hover-effect">Hi! I'm Abdur Rehman Tariq</span></h1>
+    <h4><span class="hover-effect">A META Certified Frontend Developer specializing in React.js,<br> currently building MERN apps</span></h4>
+  </div>
 
-    <!--frontend js to time fadeIn animations and for the cursor, will be adding this to every page-->
+  <footer>
+    <p>© 2025 Abdur Rehman Tariq. All rights reserved.</p>
+  </footer>
 
-    <script>
+  <!-- JavaScript -->
+  <script>
+    function initFadeInAnimations() {
+      const cards = document.querySelectorAll(".card");
+      const aboutMeTexts = document.querySelectorAll(".fadeInText");
+      const observerOptions = { threshold: 0.2 };
 
-  function initFadeInAnimations() {
-    const cards = document.querySelectorAll(".card");
-    const aboutMeTexts = document.querySelectorAll(".fadeInText");
-    const observerOptions = { threshold: 0.2 };
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("fadeInUp");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
 
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("fadeInUp");
-          observer.unobserve(entry.target);
+      cards.forEach(card => observer.observe(card));
+      aboutMeTexts.forEach(text => observer.observe(text));
+    }
+
+    function enableCustomCursor() {
+      document.addEventListener("mousemove", (e) => {
+        const cursor = document.querySelector(".custom-cursor");
+        if (cursor) {
+          cursor.style.left = `${e.pageX}px`;
+          cursor.style.top = `${e.pageY}px`;
         }
       });
-    }, observerOptions);
+    }
 
-    cards.forEach(card => observer.observe(card));
-    aboutMeTexts.forEach(text => observer.observe(text));
-  }
+    function injectDynamicStyles() {
+      const style = document.createElement('style');
+      style.innerHTML = `
+        h1 {
+          word-spacing: break-word;
+          display: block;
+          text-align: center;
+          font-size: 6vw;
+          color: azure;
+          margin: 0.5em 0;
+          line-height: 1.1;
+        }
+        h4 {
+          text-align: center;
+          font-size: 2vw;
+          color: azure;
+          margin: 1em 0;
+          display: block;
+        }
+        .hover-effect {
+          transition: color 0.5s, transform 0.5s;
+          -webkit-text-stroke: 1px #ffffff;
+          -webkit-text-fill-color: transparent;
+          font-weight: bolder;
+          font-family: monospace;
+          display: inline-block;
+          white-space: nowrap;
+          overflow: hidden;
+          border-right: 2px solid;
+          width: 100%;
+          animation: typewriter 4s steps(20) 1s forwards, blink 0.7s infinite;
+        }
+        .hover-effect:hover {
+          transform: scale(1.1);
+          -webkit-text-stroke: 0em;
+          color: #ffaa00;
+          -webkit-text-fill-color: #ffaa00;
+        }
+        @keyframes typewriter {
+          from { width: 0; }
+          to { width: 100%; color: #ffaa00; }
+        }
+        @keyframes blink {
+          50% { border-color: transparent; }
+        }
+      `;
+      document.head.appendChild(style);
+    }
 
+    function initPageInteractions() {
+      injectDynamicStyles();
+      initFadeInAnimations();
+      enableCustomCursor();
+    }
 
-  function enableCustomCursor() {
-    document.addEventListener("mousemove", (e) => {
-      const cursor = document.querySelector(".custom-cursor");
-      if (cursor) {
-        cursor.style.left = `${e.pageX}px`;
-        cursor.style.top = `${e.pageY}px`;
-      }
-    });
-  }
-
-
-  function initPageInteractions() {
-    initFadeInAnimations();
-    enableCustomCursor();
-  }
-
-  document.addEventListener("DOMContentLoaded", initPageInteractions);
-</script>
-
+    document.addEventListener("DOMContentLoaded", initPageInteractions);
+  </script>
 </body>
 </html>

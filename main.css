@@ -74,14 +74,14 @@ header i {
     padding: 0 3em;
 }
 
-
+/* Commented this out since i moved it to js
 h1 {
     word-spacing: break-word;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     text-align: center;
-    font-size: 6vw; /* Main heading size */
+    font-size: 6vw;
     color: azure;
     margin: 0.5em 0;
     line-height: 1.1;
@@ -91,7 +91,7 @@ h1 {
 
 h4 {
     text-align: center;
-    font-size: 2vw; /* Smaller size for h4 */
+    font-size: 2vw; 
     color: azure;
     margin: 1em 0;
     display: block;
@@ -133,6 +133,7 @@ h4 {
     color: #ffaa00;
     -webkit-text-fill-color: #ffaa00;
 }
+*/
 
 /* About Me Section */
 .AboutMe {
